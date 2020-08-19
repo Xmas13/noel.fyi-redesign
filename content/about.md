@@ -1,29 +1,69 @@
 +++
-title = "About Hugo"
+title = "About Me"
 slug = "about"
 +++
 
-Hugo is a static site engine written in Go.
+# Who Am I?
 
+![](/images/me2.jpg)
 
-It makes use of a variety of open source projects including:
+My name is Noel Miller. I am from the great state of Minnesota in the USA. I am 5 years into my IT career at this point and work at a Fortune 500 company providing Server Support for other Enterprises. I have worked on all sizes of companies ranging from SMBs (Small - Medium Size Businesses) to Large Enterprises. I am a father, multi instrumentalist, have a zoo of animals at home (2 Dogs, 5 Cats), and I enjoy spending time with my family and friends. 
 
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
+The purpose of this site is to provide my own thoughts, opinions, and information on things I am interested in. I have always been interested in Technology, Linux / Open Source, and Music (specifically metal). I feel that as being a part of the Open Source Community, I should attempt to give back to the community with the knowledge and experience I have gained. I will give a little bit about myself to qualify some of the things I will say on this site, but I will preface it with this: I am by no means an **SME (Subject Matter Expert)** in any of these things.
 
-Learn more and contribute on [GitHub](https://github.com/spf13).
+# Technical Qualifications
 
-## Setup
+I am always in the process of acquiring new knowledge and certifications. This is something that will likely come up in this blog commonly as it is a strong focus of mine to keep my skills current.
 
-Some fun facts about [Hugo](http://gohugo.io/):
+## Certifications
 
-* Built in [Go](http://golang.org/)
-* Loosely inspired by [Jekyll](http://jekyllrb.com/)
-* Primarily developed by [spf13](http://spf13.com/) on the train while commuting to and from Manhattan.
-* Coded in [Vim](http://vim.org) using [spf13-vim](http://vim.spf13.com/)
+* RHCSA (Red Hat Certified Systems Administrator)
+* LPIC : LE-1: Linux Essentials 
+* AWS Certified Solutions Architect - Associate
+* CompTia Network +
+* CompTia A+
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/spf13/hugo/issues/new) or [ask me on Twitter](https://twitter.com/spf13).
+# Musical Experience
 
-Thanks for reading!
+I have experience with the following instruments: 
+
+* Guitar
+* Bass
+* Drums
+* Mountain Dulcimer
+* Didgeridoo
+
+The bands I am / have been part of:
+
+* General Synesthesia - Current Guitarist - [Facebook](https://www.facebook.com/General.Synesthesia/)
+* Armus - Disbanded, Former Bassist - [BandCamp](https://armus.bandcamp.com/album/demo-1-14)
+
+# My Pets
+
+## Claire
+
+![Claire](/images/Claire.jpg)
+
+## Harry
+
+![Harry](/images/Harry.jpg)
+
+## Shiro
+
+![Shiro](/images/Shiro.jpg)
+
+## Elena
+
+![](/images/Elena.jpg)
+
+## Vern
+
+![](/images/Vern.jpg)
+
+## James
+
+![](/images/James.jpg)
+
+## Edward
+
+![](/images/Edward.jpg)

@@ -13,15 +13,15 @@ pygmentsstyle = "b2"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
-disqusShortname = "yourdiscussshortname"
+# disqusShortname = "yourdiscussshortname"
 
 [params]
     author = "Noel Miller"
     description = "Noel Miller's Personal Website"
     keywords = "blog,developer,personal,sysadmin,devops,music"
     info = "linux geek | musician | sysadmin"
-    avatarurl = "images/logo.png"
-    #gravatar = "noelmiller@protonmail.com"
+    avatarurl = "images/avatar.png"
+    gravatar = "noelmiller@protonmail.com"
     footercontent = "Disclaimer: Content created on this site is purely my own thoughts and opinions. They do not reflect the views of my employer or any other organization I am a member of."
 
     dateformat = "January 2, 2006"
@@ -55,17 +55,17 @@ disqusShortname = "yourdiscussshortname"
     # Custom JS
     custom_js = []
 
-# If you want to use fathom(https://usefathom.com) for analytics, add this section
-[params.fathomAnalytics]
-    siteID = "ABCDE"
-    # Default value is cdn.usefathom.com, overwrite this if you are self-hosting
-    serverURL = "analytics.example.com"
+# # If you want to use fathom(https://usefathom.com) for analytics, add this section
+# [params.fathomAnalytics]
+#     siteID = "ABCDE"
+#     # Default value is cdn.usefathom.com, overwrite this if you are self-hosting
+#     serverURL = "analytics.example.com"
     
-# If you want to use plausible(https://plausible.io) for analytics, add this section
-[params.plausibleAnalytics]
-    domain = "example.com"
-    # Default value is plausible.io, overwrite this if you are self-hosting or using a custom domain
-    serverURL = "analytics.example.com"
+# # If you want to use plausible(https://plausible.io) for analytics, add this section
+# [params.plausibleAnalytics]
+#     domain = "example.com"
+#     # Default value is plausible.io, overwrite this if you are self-hosting or using a custom domain
+#     serverURL = "analytics.example.com"
 
 [taxonomies]
   category = "categories"
@@ -76,32 +76,22 @@ disqusShortname = "yourdiscussshortname"
     name = "Github"
     icon = "fab fa-github"
     weight = 1
-    url = "https://github.com/johndoe/"
-[[params.social]]
-    name = "Gitlab"
-    icon = "fab fa-gitlab"
-    weight = 2
-    url = "https://gitlab.com/johndoe/"
+    url = "https://github.com/Xmas13"
 [[params.social]]
     name = "Twitter"
     icon = "fab fa-twitter"
-    weight = 3
-    url = "https://twitter.com/johndoe/"
+    weight = 2
+    url = "https://twitter.com/_noel_miller"
 [[params.social]]
     name = "LinkedIn"
     icon = "fab fa-linkedin"
-    weight = 4
-    url = "https://www.linkedin.com/in/johndoe/"
-[[params.social]]
-    name = "Medium"
-    icon = "fab fa-medium"
-    weight = 5
-    url = "https://medium.com/@johndoe"
+    weight = 3
+    url = "https://www.linkedin.com/in/noel-miller-533909113/"
 [[params.social]]
     name = "RSS"
     icon = "fas fa-rss"
-    weight = 6
-    url = "https://myhugosite.com/index.xml"
+    weight = 4
+    url = "https://noel.fyi/index.xml"
     rel = "alternate"
     type = "application/rss+xml"
 
@@ -128,40 +118,40 @@ disqusShortname = "yourdiscussshortname"
             url = "projects/"
 
             [[languages.en.menu.main]]
-            name = "Contact me"
-            weight = 5
+            name = "Contact"
+            weight = 4
             url = "contact/"
 
 
-    [languages.pt-br]
-        languagename = "Português"
-        title = "João Ninguém"
+    # [languages.pt-br]
+    #     languagename = "Português"
+    #     title = "João Ninguém"
 
-        [languages.pt-br.params]
-            author = "João Ninguém"
-            info = "Full Stack DevOps e Mágico"
-            description = "Sítio pessoal de João Ninguém"
-            keywords = "blog,desenvolvedor,pessoal"
-            footercontent = "Coloque algum texto aqui."
+    #     [languages.pt-br.params]
+    #         author = "João Ninguém"
+    #         info = "Full Stack DevOps e Mágico"
+    #         description = "Sítio pessoal de João Ninguém"
+    #         keywords = "blog,desenvolvedor,pessoal"
+    #         footercontent = "Coloque algum texto aqui."
 
-        [languages.pt-br.menu]
+    #     [languages.pt-br.menu]
 
-            [[languages.pt-br.menu.main]]
-            name = "Sobre"
-            weight = 1
-            url = "about/"
+    #         [[languages.pt-br.menu.main]]
+    #         name = "Sobre"
+    #         weight = 1
+    #         url = "about/"
 
-            [[languages.pt-br.menu.main]]
-            name = "Blog"
-            weight = 2
-            url = "posts/"
+    #         [[languages.pt-br.menu.main]]
+    #         name = "Blog"
+    #         weight = 2
+    #         url = "posts/"
 
-            [[languages.pt-br.menu.main]]
-            name = "Projetos"
-            weight = 3
-            url = "projects/"
+    #         [[languages.pt-br.menu.main]]
+    #         name = "Projetos"
+    #         weight = 3
+    #         url = "projects/"
 
-            [[languages.pt-br.menu.main]]
-            name = "Contato"
-            weight = 5
-            url = "contact/"
+    #         [[languages.pt-br.menu.main]]
+    #         name = "Contato"
+    #         weight = 5
+    #         url = "contact/"
