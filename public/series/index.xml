@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on Noel Miller</title>
+    <link>http://redesign.noel.fyi/series/</link>
+    <description>Recent content in Series on Noel Miller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 08 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://redesign.noel.fyi/series/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Education</title>
+      <link>http://redesign.noel.fyi/series/education/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://redesign.noel.fyi/series/education/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IT</title>
+      <link>http://redesign.noel.fyi/series/it/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://redesign.noel.fyi/series/it/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://redesign.noel.fyi/series/linux/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://redesign.noel.fyi/series/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Red Hat</title>
+      <link>http://redesign.noel.fyi/series/red-hat/</link>
+      <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://redesign.noel.fyi/series/red-hat/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
