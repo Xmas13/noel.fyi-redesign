@@ -1,13 +1,11 @@
 ---
-- hosts: docker-servers
+- hosts: web-servers
   become: true
-  vars_files:
-    - vars/default.yml
 
   tasks:
     - name: Ensure Let's Encrypt datafile exists
       file:
-        path: /root/acme.json
+        path: /root/letsencrypt/acme.json
         owner: root
         group: root
         mode: "0600"
@@ -19,7 +17,7 @@
         src: files/docker-compose.yml
         dest: /opt/
 
-    - name: Install Traefik and Watchtower
+    - name: Start Web Services
       command: docker-compose up -d
       args:
         chdir: /opt/

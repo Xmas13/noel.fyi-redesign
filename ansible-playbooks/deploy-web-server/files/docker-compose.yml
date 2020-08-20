@@ -1,37 +1,42 @@
-version: '3.2'
-
-networks:
-  webgateway:
-    driver: bridge
+version: '3.3'
 
 services:
   proxy:
     container_name: traefik_proxy
-    image: traefik
-    command: >-
-      --docker --logLevel=INFO \
-      --acme \
-      --acme.acmelogging \
-      --acme.dnschallenge=false \
-      --acme.entrypoint="https" \
-      --acme.httpchallenge \
-      --acme.httpChallenge.entryPoint="http" \
-      --acme.onhostrule=true \
-      --acme.storage="/root/acme.json" \
-      --acme.email="${LE_EMAIL}" \
-      --entrypoints="Name:http Address::80 Redirect.EntryPoint:https" \
-      --entrypoints="Name:https Address::443 TLS" \
-      --defaultentrypoints="http,https"
+    image: traefik:v2.0.0-rc3
+    command:
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.le.acme.tlschallenge=true"
+      - "--certificatesresolvers.le.acme.email=${LE_EMAIL}"
+      - "--certificatesresolvers.le.acme.storage=/letsencrypt/acme.json"
     labels:
-      - traefik.enable=false
-    networks:
-      - webgateway
+      - "traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)"
+      - "traefik.http.routers.redirs.entrypoints=web"
+      - "traefik.http.routers.redirs.middlewares=redirect-to-https"
     ports:
       - "80:80"
       - "443:443"
-      - "8080:8080"
     restart: always
     volumes:
+      - "/root/letsencrypt:/letsencrypt"
       - /var/run/docker.sock:/var/run/docker.sock
-      - /dev/null:/traefik.toml
-      - /root/acme.json:/root/acme.json
+
+  watchtower:
+    container_name: watchtower
+    image: v2tec/watchtower
+    labels:
+      - traefik.enable=false
+      - label-enable=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  hugo-site:
+    container_name: hugo-site
+    image: noelmiller/publish-hugo-website
+    labels:
+      - "traefik.http.routers.hugo-site.rule=Host(`redesign.noel.fyi`)"
+      - "traefik.http.routers.hugo-site.tls=true"
+      - "traefik.http.routers.hugo-site.tls.certresolver=le"
+    restart: always
