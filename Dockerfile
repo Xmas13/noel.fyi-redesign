@@ -12,6 +12,7 @@ ENV HUGO_ID=hugo_${HUGO_VERSION}_${HUGO_TYPE}
 COPY . /data
 WORKDIR /data
 
+# download and install hugo
 RUN wget -O - https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_ID} | tar -xz -C /tmp \
     && mkdir -p /usr/local/sbin \
     && mv /tmp/hugo /usr/local/sbin/hugo \
@@ -20,13 +21,13 @@ RUN wget -O - https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION
     && rm -rf /tmp/README.md
 
 RUN hugo
+
 # Removing extraneous files
 RUN rm -rf ansible-playbooks/ assets/ content/ static/ .gitignore/ .gitmodules/ config.toml/ Dockerfile/
 
 ## Stage 2
-
+## Pull down latest go image, download minify command line utility to minify web files
 FROM golang:1.15-alpine
-RUN go version
 
 RUN apk add --update --update-cache --no-cache \
     git \
@@ -56,7 +57,9 @@ RUN minify --recursive --verbose \
         --output public/ \
         public/
 
+
 ## Stage 4
+## Pull latest nginx image for alpine and serve on port 80
 
 FROM nginx:alpine
 COPY --from=1 /data/public /usr/share/nginx/html
