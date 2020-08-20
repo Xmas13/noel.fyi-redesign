@@ -1,0 +1,30 @@
+---
+- hosts: docker-servers
+  become: true
+  vars_files:
+    - vars/default.yml
+
+  tasks:
+    - name: Ensure Let's Encrypt datafile exists
+      file:
+        path: /root/acme.json
+        owner: root
+        group: root
+        mode: "0600"
+        state: touch
+      changed_when: false
+
+    - name: Copy docker-compose
+      copy:
+        src: files/docker-compose.yml
+        dest: /opt/
+
+    - name: Install Traefik and Watchtower
+      command: docker-compose up -d
+      args:
+        chdir: /opt/
+      environment:
+        COMPOSE_PROJECT_NAME: traefik
+        LE_EMAIL: "{{ lookup('env', 'LE_EMAIL') }}"
+      register: dc_changed
+      changed_when: "'up-to-date' not in dc_changed.stderr"
