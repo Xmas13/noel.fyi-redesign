@@ -87,13 +87,13 @@ pygmentscodefencesguesssyntax = true
     icon = "fab fa-linkedin"
     weight = 3
     url = "https://www.linkedin.com/in/noel-miller-533909113/"
-[[params.social]]
-    name = "RSS"
-    icon = "fas fa-rss"
-    weight = 4
-    url = "http://redesign.noel.fyi/index.xml"
-    rel = "alternate"
-    type = "application/rss+xml"
+# [[params.social]]
+#     name = "RSS"
+#     icon = "fas fa-rss"
+#     weight = 4
+#     url = "http://redesign.noel.fyi/index.xml"
+#     rel = "alternate"
+#     type = "application/rss+xml"
 
 
 [languages]
