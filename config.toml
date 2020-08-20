@@ -1,4 +1,4 @@
-baseurl = "https://redesign.noel.fyi"
+baseurl = "https://noel.fyi"
 title = "Noel Miller"
 
 theme = "hugo-coder"
@@ -91,7 +91,7 @@ pygmentscodefencesguesssyntax = true
 #     name = "RSS"
 #     icon = "fas fa-rss"
 #     weight = 4
-#     url = "http://redesign.noel.fyi/index.xml"
+#     url = "http://noel.fyi/index.xml"
 #     rel = "alternate"
 #     type = "application/rss+xml"
 

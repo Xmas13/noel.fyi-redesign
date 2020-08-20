@@ -37,7 +37,7 @@ services:
     container_name: hugo-site
     image: noelmiller/publish-hugo-website
     labels:
-      - "traefik.http.routers.hugo-site.rule=Host(`redesign.noel.fyi`)"
+      - "traefik.http.routers.hugo-site.rule=Host(`noel.fyi`)"
       - "traefik.http.routers.hugo-site.tls=true"
       - "traefik.http.routers.hugo-site.tls.certresolver=le"
     restart: always
