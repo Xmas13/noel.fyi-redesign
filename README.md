@@ -22,11 +22,13 @@ I will take some time and explain how all of these technologies fit together and
 
 ## Architecture
 
-I like building something that you can understand easily by breaking it apart. This is why I am a big believer in the Unix Philosophy. I like to have many small, very focused tools creating a larger system. 
+![Website Diagram](./Website%20Diagram.png)
+
+I like building something that you can understand easily by breaking it apart. This is why I am a big believer in the Unix Philosophy. I like to have many small, very focused tools creating a larger system.
 
 This may seem like a lot of tools to build a simple static site. I want to save myself the pain of updating markdown by hand, using hugo to publish, minify, etc.
 
-I will start explaining my choices in architecture below.
+I will start explaining the parts of my architecture.
 
 ### Digital Ocean
 
@@ -69,7 +71,7 @@ I currently this hosted on Digital Ocean. I use this as a base for docker to run
 
 #### How I use Docker
 
-* I use docker in one of it's more basic forms. I use Docker Compose to set up a set of containers that work in conjunction to provide services for my site. I run Hugo, Traefik, and Watchtower all as Docker containers on top of my Ubuntu host.
+* I use docker in one of it's more basic forms. I use Docker Compose to set up a set of containers that work in conjunction to provide services for my site. I run my custom Hugo image, Traefik, and Watchtower all as Docker containers on top of my Ubuntu host.
 
 #### Reasons I Chose DockerHub
 
@@ -94,7 +96,7 @@ I currently this hosted on Digital Ocean. I use this as a base for docker to run
 
 #### How I use Hugo
 
-I built a custom Dockerfile to automate all of the standard things that I would need to do in order to regenerate my site using Hugo. Everytime I would add a blog post or page to my site, I would need to regenerate my site and upload it to my host.
+I built a custom Dockerfile to automate all of the standard things that I would need to do in order to generate my site using Hugo. Everytime I would add a blog post or page to my site, I would need to regenerate my site and upload it to my host. This image also includes a basic Nginx server in it.
 
 With docker, I have automated this process as it is easily repeatable. I use the other tools that I have mentioned to automate the redeployment of my site further
 
@@ -106,7 +108,7 @@ With docker, I have automated this process as it is easily repeatable. I use the
 
 #### How I use Minify
 
-It is part of the build process of my DockerFile to minify my site before serving it on Nginx
+It is part of the build process of my DockerFile to minify my site before serving it on Nginx. This is a custom Go command line tool that someone wrote to do the minifying
 
 ### Traefik
 
@@ -130,3 +132,44 @@ I used the minimal viable configuration to get my site up and running using it w
 #### How I use Let's Encrypt
 
 It is utilized by Traefik to manage HTTPS
+
+### WatchTower
+
+#### Reasons I use WatchTower
+
+* It is used to monitor DockerHub for changes to my custom continer
+* It will automatically pull down and replace my site with a new version of it
+* Simplifies by deployment model immensely
+
+#### How I use WatchTower
+
+* It is used in a container and is part of my Docker Compose file
+* It is set to monitor the Docker Socket to replace the container when it sees a successful build in DockerHub
+
+### Ansible
+
+#### Reasons I use Ansible
+
+* Ansible is useful for getting my Ubuntu 20.04 host set back up again quickly if there is an issue with it
+* It documents the configurations I use and versions of software I use
+* Reduces management overhead and automates the process if I need to scale out horizontally with more VMs
+
+#### How I use Ansible
+
+I have written 2 playbooks. One for installing docker and one for deploying my web server. My web server deployment relies on a docker-compose.yml file to set up all containers on targeted host. It also deploys an empty acme.json file for Traefik, otherwise Let's Encrypt fails to set up with Traefik.
+
+### GitHub
+
+#### Reasons I use GitHub
+
+* Github is the industry standard for hosting source code
+* It integrates with DockerHub, making deployment of updates much easier
+* Any other list of reasons you would use an SCM
+
+#### How I use GitHub
+
+It integrates with my on premises GitLab server, which mirrors this repository to GitHub. As stated above, it also integrates with DockerHub.
+
+## Conclusion
+
+I hope this write up gives you some insight into how you can host a solution like this yourself. Feel free to utilize my Dockerfile and docker-compose.yml file to set up your own Hugo based blog or website. Pull down my site as an example. You will need to edit the config.toml file to have it hosted locally rather than using my DNS name for my site if you plan on playing around with it.
